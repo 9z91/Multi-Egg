@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 function display {
 
     echo -e "\033c"
@@ -16,7 +15,6 @@ function display {
     echo "
 
 ==========================================================================
-
     " 
     
 }
@@ -59,7 +57,7 @@ function optimize {
 }
 
 # Advertisements
-echo $(curl -s -I https://vwlktplzxmnskmqgpcfn.supabase.co/storage/v1/object/public/CDN/ads.txt|grep AD: )|cat -A
+echo $(curl -s -I https://vwlktplzxmnskmqgpcfn.supabase.co/storage/v1/object/public/CDN/ads.txt|grep AD: ) | cat -A
 
 if [ ! -f "$FILE" ]
 then
@@ -67,16 +65,13 @@ then
     display
 sleep 5
 echo "
+$(tput setaf 3)Which platform are you gonna use?
 
-  $(tput setaf 1)If you found any bug or errors, please submit it to me via adrea#6661.
-
-  $(tput setaf 3)Which platform are you gonna use?
-
-  1) Paper 1.8.8       6)  BungeeCord 
-  2) Paper 1.12.2      7)  Bedrock Lastest
-  3) Paper 1.16.5      8)  Pocketmine MP
-  4) Paper 1.17.1      9)  Discord NodeJS 
-  5) Paper 1.18.1      10) Discord Python
+1) Paper 1.8.8       6)  BungeeCord 
+2) Paper 1.12.2      7)  Bedrock Lastest
+3) Paper 1.16.5      8)  Pocketmine MP
+4) Paper 1.17.1      9)  Discord NodeJS 
+5) Paper 1.18.1      10) Discord Python
 
   "
 read -r n
@@ -90,7 +85,7 @@ case $n in
 
     sleep 4
 
-    forceStuffs
+    force
 
     curl -O https://cdn.discordapp.com/attachments/904385467359842345/947085351443394570/paper-server.jar
 
@@ -102,8 +97,8 @@ case $n in
     
     echo -e ""
     
-    optimizeJavaServer
-    launchJavaServer
+    optimize
+    launch
   ;;
 
   2) 
@@ -113,7 +108,7 @@ case $n in
 
     sleep 4
 
-    forceStuffs
+    force
 
     curl -O https://cdn.discordapp.com/attachments/904385467359842345/947085463896870942/paper-server.jar
 
@@ -125,8 +120,8 @@ case $n in
 
     echo -e ""
 
-    optimizeJavaServer
-    launchJavaServer
+    optimize
+    launch
   ;;
 
   3) 
@@ -136,7 +131,7 @@ case $n in
 
     sleep 4
 
-    forceStuffs
+    force
 
     curl -O https://cdn.discordapp.com/attachments/904385467359842345/947085612710756412/paper-server.jar
 
@@ -148,8 +143,8 @@ case $n in
 
     echo -e ""
 
-    optimizeJavaServer
-    launchJavaServer
+    optimize
+    launch
   ;;
 
   4)
@@ -159,7 +154,7 @@ case $n in
 
     sleep 4
 
-    forceStuffs
+    force
 
     curl -O https://download2276.mediafire.com/5dptw00gq4mg/dcnk3b1x0h1aial/paper-server.jar
 
@@ -169,8 +164,8 @@ case $n in
 
     echo -e ""
 
-    optimizeJavaServer
-    launchJavaServer
+    optimize
+    launch
   ;;
 
   5) 
@@ -180,7 +175,7 @@ case $n in
 
     sleep 4
 
-    forceStuffs
+    force
 
     curl -O https://cdn.discordapp.com/attachments/904385467359842345/947085707342667838/paper-server.jar
 
@@ -190,8 +185,8 @@ case $n in
 
     echo -e ""
 
-    optimizeJavaServer
-    launchJavaServer
+    optimize
+    launch
   ;;
 
   6)
@@ -251,7 +246,7 @@ fi
 # Redownload the Hibernate jar incase someone delete it.
   curl -o plugins/alactichost.jar https://cdn.discordapp.com/attachments/944177397228511234/945181383016464384/alactichost.jar
   display   
-  launchJavaServer
+  launch
 fi
 fi
 fi
