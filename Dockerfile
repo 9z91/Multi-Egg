@@ -2,6 +2,8 @@ FROM        ubuntu:20.04
 
 LABEL       author="dxqt" maintainer="hi@dxqt.lol"
 
+ENV DEBIAN_FRONTEND noninteractive
+
 ENV TZ=Asia/Bangkok HOST_NAME=AlacticHost
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
@@ -14,10 +16,13 @@ RUN chmod 777 /tmp && chown container:container /tmp
 
 ENV  USER=container HOME=/home/container
 USER container
- 
+
+ENV         USER=container HOME=/home/container
+USER        container
+
 WORKDIR     /home/container
 
 COPY        ./entrypoint.sh /entrypoint.sh
 COPY        ./dev.sh /dev.sh
-
+ 
 CMD         ["/bin/bash", "/entrypoint.sh"]
