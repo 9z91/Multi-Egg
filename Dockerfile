@@ -5,6 +5,8 @@ LABEL       author="dxqt" maintainer="hi@dxqt.lol"
 ENV TZ=Asia/Bangkok HOST_NAME=AlacticHost
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
+RUN chmod 777 /tmp && chown container:container /tmp
+
 RUN apt-get update -y \
  && apt-get install -y curl ca-certificates figlet openssl git tar sqlite fontconfig tzdata iproute2 \
  && useradd -d /home/container -m container
