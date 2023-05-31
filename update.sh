@@ -2,7 +2,7 @@
 
 HOST_NAME=MultiEgg
 
-PAPER_1_8=https://api.papermc.io/v2/projects/paper/versions/1.8.8/builds/445/downloads/paper-1.8.8-445.jar
+PAPER_1_8_8=https://api.papermc.io/v2/projects/paper/versions/1.8.8/builds/445/downloads/paper-1.8.8-445.jar
 PAPER_1_12_2=https://api.papermc.io/v2/projects/paper/versions/1.12.2/builds/1620/downloads/paper-1.12.2-1620.jar
 PAPER_1_16_5=https://api.papermc.io/v2/projects/paper/versions/1.16.5/builds/794/downloads/paper-1.16.5-794.jar
 PAPER_1_18_2=https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/388/downloads/paper-1.18.2-388.jar
@@ -56,34 +56,34 @@ function installMCServer {
 }
 
 function installJavaAndPaper() { 
-  apt update
+  sudo apt update
   case $1 in
     8)
       # JDK 8
-      apt install -y default-jdk
+      sudo apt install -y default-jdk
       # Paper 1.8.8
       curl -o server.jar $PAPER_1_8_8
       ;;
     11)
       # JDK 11
       echo 'deb http://ftp.debian.org/debian stretch-backports main' | sudo tee /etc/apt/sources.list.d/stretch-backports.list
-      apt update
-      apt install -y openjdk-11-jdk
+      sudo apt update
+      sudo apt install -y openjdk-11-jdk
       # Paper 1.12.2
       curl -o server.jar $PAPER_1_12_2
       ;;
     16)
       # JDK 16
-      add-apt-repository ppa:linuxuprising/java
-      apt update
-      apt install -y oracle-java16-installer
+      sudo add-apt-repository ppa:linuxuprising/java
+      sudo apt update
+      sudo apt install -y oracle-java16-installer
       # Paper 1.16.5
       curl -o server.jar $PAPER_1_16_5
       ;;
     17)
       # JDK 17
       wget https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.deb
-      apt install -y ./jdk-17_linux-x64_bin.deb
+      sudo apt install -y ./jdk-17_linux-x64_bin.deb
       export JAVA_HOME=/usr/lib/jvm/jdk-17/
       export PATH=\$PATH:\$JAVA_HOME/bin
       # Paper 1.19.4
