@@ -12,7 +12,7 @@
     "images": [
         "quay.io\/moonarray\/multi-egg"
     ],
-    "startup": ".\/dev.sh",
+    "startup": ".\/update.sh",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \")! For help, type \",\r\n    \"userInteraction\": [\r\n        \"Go to eula.txt for more info.\"\r\n    ]\r\n}",
