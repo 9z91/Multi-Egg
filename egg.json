@@ -6,8 +6,8 @@
     },
     "exported_at": "2021-12-09T13:30:53-05:00",
     "name": "Multi-Egg",
-    "author": "hi@dxqt.lol",
-    "description": "h",
+    "author": "arr",
+    "description": "Pterodactyl Multi-Egg that can be used to create Java and proxy servers. ",
     "features": null,
     "images": [
         "quay.io\/moonarray\/multi-egg"
@@ -26,15 +26,5 @@
             "entrypoint": "bash"
         }
     },
-    "variables": [
-        {
-            "name": "Host Name",
-            "description": "Your hosting name",
-            "env_variable": "HOST_NAME",
-            "default_value": "AlacticHost",
-            "user_viewable": true,
-            "user_editable": false,
-            "rules": "nullable|string|max:20"
-        }
-    ]
+    "variables": []
 }
