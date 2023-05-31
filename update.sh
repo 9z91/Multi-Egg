@@ -121,17 +121,13 @@ function launchServer {
   java -Xms1024M $STARTUP_FLAGS -jar server.jar nogui
 }
 
-FILE=eula.txt
+FILE=server.jar
+
+displayMotd
 
 if [ ! -f "$FILE" ]; then
-  displayMotd
   sleep 5
   selectServerTypes
 else
-  displayMotd
-  if [ -f BungeeCord.jar ]; then
-    java -Xms512M -Xmx512M -jar BungeeCord.jar
-  else
-    launchServer
-  fi
+  launchServer
 fi
