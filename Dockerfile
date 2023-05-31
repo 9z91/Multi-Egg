@@ -1,9 +1,11 @@
 FROM debian:stable
 
-RUN apt-get update\
-    && apt-get -y install curl wget unzip git tar bash figlet \
-    && addgroup --gid 2983 container \
-    && useradd -m -u 999 -d /home/container -g container -s /bin/bash container
+RUN apt-get update \ 
+    && apt-get -y upgrade \
+    && apt-get -y install curl wget unzip git tar bash figlet sudo \
+    && useradd -ms /bin/bash container \
+    && usermod -aG sudo container \ 
+    && chmod 4755 /usr/bin/sudo
 
 USER container
 ENV  USER=container HOME=/home/container
