@@ -1,11 +1,23 @@
 FROM debian:stable
 
-RUN apt-get update \ 
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get -y update \ 
     && apt-get -y upgrade \
-    && apt-get -y install curl wget unzip git tar bash figlet sudo \
-    && useradd -ms /bin/bash container \
-    && usermod -aG sudo container \ 
-    && chmod 4755 /usr/bin/sudo
+    && apt -y --no-install-recommends install curl wget unzip git tar bash lsof software-properties-common ca-certificates openssl figlet \
+    && useradd -ms /bin/bash container
+
+WORKDIR /opt
+
+RUN curl \
+    -L \
+    -o openjdk.tar.gz \
+    https://download.java.net/java/GA/jdk11/13/GPL/openjdk-11.0.1_linux-x64_bin.tar.gz \
+    && mkdir jdk \
+    && tar zxf openjdk.tar.gz -C jdk --strip-components=1 \
+    && rm -rf openjdk.tar.gz \
+    && ln -sf /opt/jdk/bin/* /usr/local/bin/ \
+    && rm -rf /var/lib/apt/lists/*
 
 USER container
 ENV  USER=container HOME=/home/container
