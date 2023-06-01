@@ -49,8 +49,7 @@ install_mc() {
       ;;
     *)
       echo "Invalid server version."
-      exit
-      break
+      exit 1
       ;;
     esac
   done
@@ -73,9 +72,6 @@ install_paper() {
   17)
     # Paper 1.19.4
     curl -o server.jar $PAPER_1_19_4
-    ;;
-  *)
-    echo -n "Invalid JRE version."
     ;;
   esac
   agree_eula
