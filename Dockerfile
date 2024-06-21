@@ -1,9 +1,13 @@
 FROM oven/bun
 
-COPY . .
+RUN apt-get install wget
 
-ADD src .
+COPY package.json bun.lockb ./
 
 RUN bun install --ignore-scripts --production  
+
+COPY src .
+
+RUN rm -rf src
 
 CMD ["bun", "index.ts"]

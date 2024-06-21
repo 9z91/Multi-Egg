@@ -8,6 +8,8 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@inquirer/confirm": "^3.1.10",
+    "@inquirer/prompts": "^5.0.6",
     "boxen": "^7.1.1",
     "chalk": "^5.3.0",
     "figlet": "^1.7.0"

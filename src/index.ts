@@ -1,34 +1,19 @@
 // import { $ } from "bun";
-import figlet from "figlet";
-import boxen from "boxen";
-import chalk from "chalk";
 
-import { DEFAULT_EGG_NAME } from "./constants";
+import { clearScreen, displayWatermark } from "./lib/utils";
+import { selectJavaVersion, selectSoftware } from "./prompts";
 
 const initializeApp = async () => {
-  figlet(
-    DEFAULT_EGG_NAME,
-    {
-      font: "Banner3-D",
-    },
-    (error, data) => {
-      if (error) {
-        return;
-      }
+  clearScreen();
 
-      const title = chalk.yellowBright(data!);
+  await displayWatermark();
 
-      const output = boxen(title, {
-        title: chalk.underline("https://github.com/9z91/Multi-Egg"),
-        titleAlignment: "center",
-        padding: 1,
-        margin: 1,
-        borderStyle: "double",
-      });
+  const software = await selectSoftware();
 
-      console.log(chalk.gray(output));
-    },
-  );
+  switch (software) {
+    case "minecraft":
+      await selectJavaVersion();
+  }
 };
 
 initializeApp();
