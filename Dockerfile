@@ -1,10 +1,9 @@
 FROM oven/bun
 
-COPY bun.lockb . 
-COPY package.json . 
+COPY . .
 
-RUN bun install --frozen-lockfile
+ADD src .
 
-COPY src . 
+RUN bun install --ignore-scripts --production  
 
 CMD ["bun", "index.ts"]

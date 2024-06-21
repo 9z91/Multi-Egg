@@ -37,6 +37,9 @@ devDependencies:
   lint-staged:
     specifier: ^15.2.7
     version: 15.2.7
+  module-alias:
+    specifier: ^2.2.3
+    version: 2.2.3
   prettier:
     specifier: 3.3.2
     version: 3.3.2
@@ -1058,6 +1061,10 @@ packages:
 
   /minimist@1.2.7:
     resolution: {integrity: sha512-bzfL1YUZsP41gmu/qjrEk0Q6i2ix/cVeAhbCbqH9u3zYutS1cLg00qhrD0M2MVdCcx4Sc0UpP2eBWo9rotpq6g==}
+    dev: true
+
+  /module-alias@2.2.3:
+    resolution: {integrity: sha512-23g5BFj4zdQL/b6tor7Ji+QY4pEfNH784BMslY9Qb0UnJWRAt+lQGLYmRaM0KDBwIG23ffEBELhZDP2rhi9f/Q==}
     dev: true
 
   /ms@2.1.2:

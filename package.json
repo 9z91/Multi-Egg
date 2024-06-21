@@ -2,26 +2,31 @@
   "name": "multi-egg",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "dev": "bun run ./src/index.ts",
+    "build": "rimraf ./dist && bun build ./src --outdir ./dist --target bun",
+    "prepare": "husky"
+  },
   "dependencies": {
     "boxen": "^7.1.1",
     "chalk": "^5.3.0",
     "figlet": "^1.7.0"
   },
-  "scripts": {
-    "dev": "bun run ./src/index.ts",
-    "prepare": "husky"
-  },
   "devDependencies": {
-    "@types/bun": "latest",
+    "@types/bun": "^1.1.5",
     "@types/figlet": "^1.5.8",
     "@types/node": "^20.14.7",
     "cz-conventional-changelog": "^3.3.0",
-    "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
-    "prettier": "3.3.2"
+    "module-alias": "^2.2.3",
+    "prettier": "3.3.2",
+    "rimraf": "^5.0.7"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
+  },
+  "optionalDependencies": {
+    "husky": "^9.0.11"
   },
   "config": {
     "commitizen": {
@@ -30,5 +35,8 @@
   },
   "lint-staged": {
     "*.{ts,tsx}": "prettier --write"
+  },
+  "_moduleAliases": {
+    "~": "src/"
   }
 }
