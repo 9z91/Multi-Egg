@@ -1,0 +1,16 @@
+{
+  "name": "multi-egg",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@types/figlet": "^1.5.8",
+    "@types/node": "^20.14.7",
+    "figlet": "^1.7.0"
+  }
+}

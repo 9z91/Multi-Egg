@@ -1,30 +1,28 @@
 {
-    "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
-    "meta": {
-        "version": "PTDL_v1",
-        "update_url": null
-    },
-    "exported_at": "2021-12-09T13:30:53-05:00",
-    "name": "Multi-Egg",
-    "author": "arr",
-    "description": "Pterodactyl Multi-Egg that can be used to create Java and proxy servers. ",
-    "features": null,
-    "images": [
-        "ghcr.io\/moonarray\/multi-egg"
-    ],
-    "startup": "\/update.sh",
-    "config": {
-        "files": "{}",
-        "startup": "{\r\n    \"done\": \")! For help, type \",\r\n    \"userInteraction\": [\r\n        \"Go to eula.txt for more info.\"\r\n    ]\r\n}",
-        "logs": "{}",
-        "stop": "stop"
-    },
-    "scripts": {
-        "installation": {
-            "script": "#!\/bin\/bash\r\necho \"Hi.\"",
-            "container": "debian:buster-slim",
-            "entrypoint": "bash"
-        }
-    },
-    "variables": []
+  "_comment": "DO NOT EDIT: FILE GENERATED AUTOMATICALLY BY PTERODACTYL PANEL - PTERODACTYL.IO",
+  "meta": {
+    "version": "PTDL_v1",
+    "update_url": null
+  },
+  "exported_at": "2021-12-09T13:30:53-05:00",
+  "name": "Multi-Egg",
+  "author": "9z91",
+  "description": "Pterodactyl Multi-Egg that can be used to create Java and proxy servers. ",
+  "features": null,
+  "images": ["ghcr.io/9z91/multi-egg"],
+  "startup": "/update.sh",
+  "config": {
+    "files": "{}",
+    "startup": "{\r\n    \"done\": \")! For help, type \",\r\n    \"userInteraction\": [\r\n        \"Go to eula.txt for more info.\"\r\n    ]\r\n}",
+    "logs": "{}",
+    "stop": "stop"
+  },
+  "scripts": {
+    "installation": {
+      "script": "#!/bin/bash\r\necho \"Hi.\"",
+      "container": "debian:buster-slim",
+      "entrypoint": "bash"
+    }
+  },
+  "variables": []
 }
