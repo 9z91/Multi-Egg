@@ -3,9 +3,12 @@
   "module": "index.ts",
   "type": "module",
   "dependencies": {
+    "boxen": "^7.1.1",
+    "chalk": "^5.3.0",
     "figlet": "^1.7.0"
   },
   "scripts": {
+    "dev": "bun run ./src/index.ts",
     "prepare": "husky"
   },
   "devDependencies": {

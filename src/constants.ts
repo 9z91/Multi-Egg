@@ -1,3 +1,3 @@
-const DEFAULT_EGG_NAME = "Multi-Egg";
+const DEFAULT_EGG_NAME = "MultiEgg";
 
 export { DEFAULT_EGG_NAME };
