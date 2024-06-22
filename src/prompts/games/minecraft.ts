@@ -1,39 +1,64 @@
-import confirm from "@inquirer/confirm";
-import { rawlist } from "@inquirer/prompts";
+import { rawlist, confirm } from "@inquirer/prompts";
 
-const selectJavaVersion = async () => {
+import { PaperClient } from "../../lib/client";
+import { captializeText } from "../../lib/utils";
+
+const selectProject = async () => {
+  const response = await PaperClient.get("v2/projects");
+
+  const projects = response.data.projects as Array<string>;
+
   const answer = await rawlist({
-    message: "Select your server version.",
-    choices: [
-      { name: "1.20.6", value: "1.20.6" },
-      { name: "1.16.5", value: "1.16.5" },
-    ],
+    message: "Select your server project.",
+    choices: projects.map((item: string) => ({
+      name: captializeText(item),
+      value: item,
+    })),
   });
 
-  return handleSelection(answer);
+  await selectVersion(answer);
+};
+
+const selectVersion = async (project: string) => {
+  const response = await PaperClient.get(`v2/projects/${project}`);
+
+  const versions = response.data.versions as Array<string>;
+
+  const answer = await rawlist({
+    message: "Select your server version.",
+    choices: versions.map((item: string) => ({
+      name: item,
+      value: item,
+    })),
+  });
+
+  await handleSelection(answer);
 };
 
 const handleSelection = async (value: string) => {
-  const accepted = await handleEulaAgreement();
-
-  if (!accepted) {
-    console.log("You have to agree to the Minecraft EULA to proceed.");
-    return;
-  }
-
   switch (value) {
     case "1.20.6":
       console.log("TODO: a");
+      break;
   }
 };
 
 const handleEulaAgreement = async () => {
-  const answer = await confirm({
-    message: "Do you agree to the Minecraft EULA?",
-    default: true,
-  });
+  const accepted = await confirm(
+    {
+      message: "Do you agree to the Minecraft EULA?",
+    },
+    {
+      clearPromptOnDone: false,
+    },
+  );
 
-  return answer;
+  if (!accepted) {
+    console.log("You have to agree to the Minecraft EULA to proceed.");
+    process.exit(1);
+  }
+
+  await selectProject();
 };
 
-export { selectJavaVersion, handleSelection, handleEulaAgreement };
+export { selectVersion, handleSelection, handleEulaAgreement };

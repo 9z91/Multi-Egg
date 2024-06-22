@@ -1,7 +1,7 @@
 // import { $ } from "bun";
 
 import { clearScreen, displayWatermark } from "./lib/utils";
-import { selectJavaVersion, selectSoftware } from "./prompts";
+import { handleEulaAgreement, selectSoftware } from "./prompts";
 
 const initializeApp = async () => {
   clearScreen();
@@ -12,7 +12,8 @@ const initializeApp = async () => {
 
   switch (software) {
     case "minecraft":
-      await selectJavaVersion();
+      await handleEulaAgreement();
+      break;
   }
 };
 

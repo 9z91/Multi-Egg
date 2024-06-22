@@ -5,6 +5,8 @@ const selectSoftware = async () => {
     message: "Select your preferred software.",
     choices: [
       { name: "Minecraft", value: "minecraft" },
+      { name: "Teamspeak", value: "teamspeak" },
+      { name: "Lavalink", value: "lavalink" },
       { name: "NodeJS", value: "nodejs" },
     ],
   });

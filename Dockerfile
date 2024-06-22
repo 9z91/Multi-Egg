@@ -1,6 +1,6 @@
 FROM oven/bun
 
-RUN apt-get install wget
+RUN apt-get update -y && apt-get install wget -y
 
 COPY package.json bun.lockb ./
 

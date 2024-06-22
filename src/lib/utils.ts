@@ -10,7 +10,7 @@ const displayWatermark = async () => {
       return;
     }
 
-    const title = chalk.yellowBright(data!);
+    const title = chalk.blue(data!);
 
     const output = boxen(title, {
       title: "https://github.com/9z91/Multi-Egg",
@@ -20,7 +20,7 @@ const displayWatermark = async () => {
       borderStyle: "double",
     });
 
-    console.log(chalk.gray(output));
+    console.log(chalk.white(output));
   });
 
   return watermark;
@@ -30,4 +30,8 @@ const clearScreen = () => {
   return process.stdout.write("\x1Bc");
 };
 
-export { displayWatermark, clearScreen };
+const captializeText = (value: string) => {
+  return value.charAt(0).toUpperCase() + value.slice(1);
+};
+
+export { displayWatermark, clearScreen, captializeText };
