@@ -1,3 +1,5 @@
 const DEFAULT_EGG_NAME = "Multi-Egg";
 
-export { DEFAULT_EGG_NAME };
+const PAPER_IO_API_URL = "https://api.papermc.io";
+
+export { DEFAULT_EGG_NAME, PAPER_IO_API_URL };
