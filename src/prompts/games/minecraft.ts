@@ -19,6 +19,26 @@ const selectProject = async () => {
   await selectVersion(answer);
 };
 
+const selectBuildVersion = async (project: string, version: string) => {
+  const request = await PaperClient.get(
+    `v2/projects/${project}/versions/${version}/builds`,
+  );
+
+  const response: { builds: Array<{ build: string }> } = await request.json();
+
+  const answer = await rawlist({
+    message: "Select your server build (If unsure, select the highest one).",
+    choices: response.builds
+      .map((item) => ({
+        name: item.build,
+        value: item.build,
+      }))
+      .reverse(),
+  });
+
+  await handleSelection(answer);
+};
+
 const selectVersion = async (project: string) => {
   const request = await PaperClient.get(`v2/projects/${project}`);
 
@@ -32,7 +52,7 @@ const selectVersion = async (project: string) => {
     })),
   });
 
-  await handleSelection(answer);
+  await selectBuildVersion(project, answer);
 };
 
 const handleSelection = async (value: string) => {

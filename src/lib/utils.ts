@@ -18,7 +18,7 @@ const displayWatermark = async () => {
       const title = chalk.cyan(data!);
 
       const output = boxen(title, {
-        title: chalk.green("https://github.com/9z91/Multi-Egg"),
+        title: chalk.green("https://github.com/9z91/multi-egg"),
         titleAlignment: "center",
         padding: 1,
         height: 10,
