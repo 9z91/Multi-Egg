@@ -1,4 +1,4 @@
-import { rawlist, confirm } from "@inquirer/prompts";
+import { rawlist } from "@inquirer/prompts"; // confirm prompt is broken on ptero
 
 import { PaperClient } from "../../lib/client";
 import { captializeText } from "../../lib/utils";
@@ -44,16 +44,15 @@ const handleSelection = async (value: string) => {
 };
 
 const handleEulaAgreement = async () => {
-  const accepted = await confirm(
-    {
-      message: "Do you agree to the Minecraft EULA?",
-    },
-    {
-      clearPromptOnDone: false,
-    },
-  );
+  const approved = await rawlist({
+    message: "Do you agree to the Minecraft EULA?",
+    choices: [
+      { name: "Yes", value: "y" },
+      { name: "No", value: "n" },
+    ],
+  });
 
-  if (!accepted) {
+  if (approved !== "y") {
     console.log("You have to agree to the Minecraft EULA to proceed.");
     process.exit(1);
   }
