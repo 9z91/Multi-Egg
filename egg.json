@@ -10,7 +10,7 @@
   "description": "Pterodactyl Multi-Egg that can be used to create Java and proxy servers. ",
   "features": null,
   "images": ["ghcr.io/9z91/multi-egg"],
-  "startup": "/update.sh",
+  "startup": "./",
   "config": {
     "files": "{}",
     "startup": "{\r\n    \"done\": \")! For help, type \",\r\n    \"userInteraction\": [\r\n        \"Go to eula.txt for more info.\"\r\n    ]\r\n}",

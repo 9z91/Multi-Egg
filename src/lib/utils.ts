@@ -5,23 +5,29 @@ import chalk from "chalk";
 import { DEFAULT_EGG_NAME } from "../constants";
 
 const displayWatermark = async () => {
-  const watermark = figlet(DEFAULT_EGG_NAME, (error, data) => {
-    if (error) {
-      return;
-    }
+  const watermark = figlet(
+    DEFAULT_EGG_NAME,
+    {
+      font: "ANSI Shadow",
+    },
+    (error, data) => {
+      if (error) {
+        return;
+      }
 
-    const title = chalk.blue(data!);
+      const title = chalk.cyan(data!);
 
-    const output = boxen(title, {
-      title: "https://github.com/9z91/Multi-Egg",
-      titleAlignment: "center",
-      padding: 1,
-      margin: 1,
-      borderStyle: "double",
-    });
+      const output = boxen(title, {
+        title: chalk.green("https://github.com/9z91/Multi-Egg"),
+        titleAlignment: "center",
+        padding: 1,
+        height: 10,
+        borderStyle: "singleDouble",
+      });
 
-    console.log(chalk.white(output));
-  });
+      console.log(chalk.white(output));
+    },
+  );
 
   return watermark;
 };

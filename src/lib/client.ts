@@ -1,7 +1,7 @@
-import axios from "axios";
+import ky from "ky";
 
-export const PaperClient = axios.create({
-  baseURL: "https://api.papermc.io",
+export const PaperClient = ky.create({
+  prefixUrl: "https://api.papermc.io",
   timeout: 8000,
   headers: {
     Accept: "application/json",

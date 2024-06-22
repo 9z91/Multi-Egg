@@ -1,5 +1,3 @@
-// import { $ } from "bun";
-
 import { clearScreen, displayWatermark } from "./lib/utils";
 import { handleEulaAgreement, selectSoftware } from "./prompts";
 

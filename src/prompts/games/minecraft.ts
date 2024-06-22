@@ -4,13 +4,13 @@ import { PaperClient } from "../../lib/client";
 import { captializeText } from "../../lib/utils";
 
 const selectProject = async () => {
-  const response = await PaperClient.get("v2/projects");
+  const request = await PaperClient.get("v2/projects");
 
-  const projects = response.data.projects as Array<string>;
+  const response: { projects: Array<string> } = await request.json();
 
   const answer = await rawlist({
     message: "Select your server project.",
-    choices: projects.map((item: string) => ({
+    choices: response.projects.map((item) => ({
       name: captializeText(item),
       value: item,
     })),
@@ -20,13 +20,13 @@ const selectProject = async () => {
 };
 
 const selectVersion = async (project: string) => {
-  const response = await PaperClient.get(`v2/projects/${project}`);
+  const request = await PaperClient.get(`v2/projects/${project}`);
 
-  const versions = response.data.versions as Array<string>;
+  const response: { versions: Array<string> } = await request.json();
 
   const answer = await rawlist({
     message: "Select your server version.",
-    choices: versions.map((item: string) => ({
+    choices: response.versions.map((item) => ({
       name: item,
       value: item,
     })),
